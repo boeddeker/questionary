@@ -296,6 +296,9 @@ class InquirerControl(FormattedTextControl):
         # helper to convert from question format to internal format
         self.choices = []
 
+        if isinstance(choices, dict):
+            choices = [Choice(k, v) for k, v in choices.items()]
+        
         if pointed_at is not None:
             self.pointed_at = pointed_at
 
